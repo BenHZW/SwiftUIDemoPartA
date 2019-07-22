@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qI7-5C-7VL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RSS Reader-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="XML" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6Y-ac-W31">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="j8u-GQ-9l4">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j8u-GQ-9l4" id="bfP-9B-hEd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fpB-a8-X0d" kind="show" identifier="showInfo" id="Ojb-yB-SGT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="g6Y-ac-W31" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="K0d-mY-uRR"/>
+                            <constraint firstItem="g6Y-ac-W31" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="UWM-vO-48s"/>
+                            <constraint firstItem="g6Y-ac-W31" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="g8g-Ja-ond"/>
+                            <constraint firstItem="g6Y-ac-W31" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tKg-gD-usq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="RSS Reader" id="tyT-l0-q9D"/>
+                    <connections>
+                        <outlet property="myTableView" destination="g6Y-ac-W31" id="Zfx-eQ-byJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="117.39130434782609"/>
+        </scene>
+        <!--Show View Controller-->
+        <scene sceneID="WPa-fK-3Nv">
+            <objects>
+                <viewController id="fpB-a8-X0d" customClass="ShowViewController" customModule="XML" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q33-za-r2W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9t-wY-dGe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2D8-S3-bHT">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="XNq-wb-cH4"/>
+                                    <constraint firstAttribute="width" constant="20" id="rdA-Zf-GzT"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j9t-wY-dGe" firstAttribute="top" secondItem="q33-za-r2W" secondAttribute="top" id="CdJ-PB-1MK"/>
+                            <constraint firstItem="j9t-wY-dGe" firstAttribute="leading" secondItem="q33-za-r2W" secondAttribute="leading" id="Lk4-nx-54z"/>
+                            <constraint firstItem="j9t-wY-dGe" firstAttribute="trailing" secondItem="q33-za-r2W" secondAttribute="trailing" id="Lx2-34-glG"/>
+                            <constraint firstItem="j9t-wY-dGe" firstAttribute="bottom" secondItem="q33-za-r2W" secondAttribute="bottom" id="Uxn-YH-qaq"/>
+                            <constraint firstItem="2D8-S3-bHT" firstAttribute="centerX" secondItem="q33-za-r2W" secondAttribute="centerX" id="iv3-nr-XvG"/>
+                            <constraint firstItem="2D8-S3-bHT" firstAttribute="centerY" secondItem="q33-za-r2W" secondAttribute="centerY" id="uOm-t3-CoT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DIF-Pj-tzc"/>
+                    </view>
+                    <connections>
+                        <outlet property="myActivityIndicator" destination="2D8-S3-bHT" id="Sl6-tQ-pVD"/>
+                        <outlet property="myWebView" destination="j9t-wY-dGe" id="uf0-IK-zxL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MsS-Yo-xCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797.5999999999999" y="113.79310344827587"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lyf-EE-mJm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qI7-5C-7VL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ska-nR-VrU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9yk-sQ-YKG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eV2-sc-r4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
